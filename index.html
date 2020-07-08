@@ -36,7 +36,7 @@
             playerSelection = personPlay();
             playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1);
             if (playerSelection == computerSelection) {
-                return "Tie, try again";
+                return "Tie";
             } else if ((computerSelection == "Rock" && playerSelection == "Scissors") || (computerSelection == "Paper" && playerSelection == "Rock") || (computerSelection == "Scissors" && playerSelection == "Paper")) {
                 return `You lose, ${computerSelection} beats ${playerSelection}.`;
             } else {
@@ -50,10 +50,13 @@
             for (i = 0; i < 5; i++) {
                 x = playRound() 
                 if (x.includes('lose')) {
+                    console.log(x);
                     computerScore++;
                 } else if (x.includes('win')) {
+                    console.log(x);
                     playerScore++;
                 } else {
+                    console.log(x);
                     playerScore += 1/2;
                     computerScore += 1/2;
                 
