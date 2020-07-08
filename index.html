@@ -38,32 +38,33 @@
             if (playerSelection == computerSelection) {
                 return "Tie, try again";
             } else if ((computerSelection == "Rock" && playerSelection == "Scissors") || (computerSelection == "Paper" && playerSelection == "Rock") || (computerSelection == "Scissors" && playerSelection == "Paper")) {
-                return "you lose";//`You lose, ${computerSelection} beats ${playerSelection}.`;
+                return `You lose, ${computerSelection} beats ${playerSelection}.`;
             } else {
-                return "you win";//`You win, ${playerSelection} beats ${computerSelection}.`;
+                return `You win, ${playerSelection} beats ${computerSelection}.`;
             }
         }
 
         function game() {
             playerScore = 0;
             computerScore = 0;
-            for (i = 0; i < 1; i++) {
-                playRound() 
-                if (playRound() == "you lose"){//`You lose, ${computerPlay()} beats ${personPlay()}.`) {
+            for (i = 0; i < 5; i++) {
+                x = playRound() 
+                if (x.includes('lose')) {
                     computerScore++;
-                } else if (playRound() == "you win"){//`You win, ${personPlay()} beats ${computerPlay()}.`) {
+                } else if (x.includes('win')) {
                     playerScore++;
                 } else {
-                    playerScore = playerScore;
-                    computerScore = computerScore;
+                    playerScore += 1/2;
+                    computerScore += 1/2;
+                
                 }
             }
             if (playerScore > computerScore) {
-                return `You won ${playerScore} - ${computerScore}`
+                return `You won ${playerScore} - ${computerScore}`;
             }  else if (computerScore > playerScore) {
-                return `You lost ${computerScore} - ${playerScore}`
+                return `You lost ${computerScore} - ${playerScore}`;
             } else {
-                return "Tie"
+                return `Tie, ${computerScore} - ${playerScore}`;
             }
         }   
 
